@@ -31,4 +31,8 @@ body {
 }
 .MuiPaper-root {
   background-color: #0c0d11 !important;
+  position: fixed !important;
+  margin-bottom: 2rem !important;
+  z-index: 1 !important;
+  width: 85% !important;
 }

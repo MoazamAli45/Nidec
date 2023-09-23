@@ -638,7 +638,7 @@ export default function Home() {
         </div>
         {/*  right side */}
         {/*  grow 2 */}
-        <div className="w-2/3   flex flex-col gap-[1rem] flex-grow ">
+        <div className="w-2/3   flex flex-col gap-[1rem] flex-grow mt-[2rem] translate-y-[6rem] ">
           {filteredData.length >= 1 &&
             filteredData.map((item, id) => (
               <Card
