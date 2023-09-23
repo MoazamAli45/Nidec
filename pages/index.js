@@ -230,6 +230,32 @@ export default function Home() {
   //  Now for search Value
   const [searchValue, setSearchValue] = useState("");
 
+  //  accordian fixed
+  const [isFixed, setIsFixed] = useState(false);
+
+  useEffect(() => {
+    // Function to handle scroll event
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const triggerPoint = 0; // Adjust this value as needed
+
+      // Check if the scroll position is beyond the trigger point
+      if (scrollPosition > triggerPoint) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
+    // Attach the scroll event listener when the component mounts
+    window.addEventListener("scroll", handleScroll);
+
+    // Remove the scroll event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   //  Filtering Data
   useEffect(() => {
     // Filter based on category
@@ -316,7 +342,7 @@ export default function Home() {
     <main className="w-[85%] mx-auto my-20">
       {/*  For mobile  */}
       <div className=" block md:hidden  my-[1rem] ">
-        <Accordion>
+        <Accordion className={` ${isFixed ? "fixed top-1 " : ""}`}>
           <AccordionSummary
             expandIcon={
               <BsChevronDown color="#C8D5E2" className="text-[2rem] ml-2" />
