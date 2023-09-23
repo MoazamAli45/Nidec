@@ -50,7 +50,7 @@ const Card = (props) => {
           {/*  Numbers */}
           <div className="flex-col gap-[.5rem]">
             <p className="text-secondary font-bold w-[68%] text-[1.6rem] break-words">
-              {passenger.join(",")}
+              {passenger?.join(",")}
             </p>
             <div className="flex gap-[.5rem] items-center">
               <p className="text-[rgb(95,120,160)]">Pasajeros</p>
@@ -59,7 +59,7 @@ const Card = (props) => {
           </div>
           <div className="flex-col gap-[.5rem]">
             <p className="text-secondary font-bold w-[68%] text-[1.6rem] break-words">
-              {load.join(",")}
+              {load?.join(",")}
             </p>
             <div className="flex gap-[.5rem] items-center">
               <p className="text-[rgb(95,120,160)]">Carga [kg]</p>
@@ -68,7 +68,7 @@ const Card = (props) => {
           </div>
           <div className="flex-col gap-[.5rem]">
             <p className="text-secondary font-bold w-[68%] text-[1.6rem] break-words">
-              {speed.join(",")}
+              {speed?.join(",")}
             </p>
             <div className="flex gap-[.5rem] items-center">
               <p className="text-[rgb(95,120,160)]">Velocidad [m/s]</p>
