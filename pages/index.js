@@ -518,153 +518,166 @@ export default function Home() {
       </div>
       {/*   PC View */}
 
-      <div className="flex gap-[2.5rem]">
-        <div className="w-1/3 bg-secondary max-h-[85vh] md:block hidden ">
-          <div className="flex flex-col gap-[2rem]  py-[3rem] px-[3rem]">
-            {/*search bar   */}
+      <div className="flex gap-[2.5rem] ">
+        <div className="relative w-1/3 md:block hidden">
+          <div
+            className={` bg-secondary max-h-[85vh] md:block hidden   ${
+              isFixed ? "fixed top-5  z-10 w-[28%]" : ""
+            } `}
+          >
+            <div className="flex flex-col gap-[2rem]  py-[3rem] px-[3rem]">
+              {/*search bar   */}
 
-            <div className="flex justify-center items-center gap-2 w-full">
-              <input
-                type="text"
-                placeholder="Buscar..."
-                className=" border-b-2 border-[#5F78A0] focus:outline-none focus:border-[#5F78A0] text-primary text-[1.6rem] placeholder:text-[1.6rem] placeholder-primary  w-full  bg-transparent px-2 py-1"
-                value={searchValue}
-                onChange={(e) => setSearchValue(e.target.value)}
-              />
-              <FaSearch color="#5F78A0" className=" text-[2rem]" />
-              {/* Select Box */}
-            </div>
-            <div className="relative w-[90%] mx-auto">
-              <select
-                className="bg-[#121622] text-[#D8D9DB] p-[1rem] appearance-none   border-none w-full focus:outline-none "
-                value={category}
-                onChange={handleCategoryChange}
-              >
-                <option value="Categoría" className="bg-white text-gray-900">
-                  Categoría
-                </option>
-                <option value="Pasajeros" className="bg-white text-gray-900">
-                  Pasajeros
-                </option>
-                <option value="Panorámicos" className="bg-white text-gray-900">
-                  Panorámicos
-                </option>
-                <option value="Hospitales" className="bg-white text-gray-900">
-                  Hospitales
-                </option>
-                <option value="Carga" className="bg-white text-gray-900">
-                  Carga
-                </option>
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                <BiChevronDown color="#D8D9DB" className="text-[2.5rem]" />
+              <div className="flex justify-center items-center gap-2 w-full">
+                <input
+                  type="text"
+                  placeholder="Buscar..."
+                  className=" border-b-2 border-[#5F78A0] focus:outline-none focus:border-[#5F78A0] text-primary text-[1.6rem] placeholder:text-[1.6rem] placeholder-primary  w-full  bg-transparent px-2 py-1"
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                />
+                <FaSearch color="#5F78A0" className=" text-[2rem]" />
+                {/* Select Box */}
               </div>
-            </div>
-            <div className="relative w-[90%] mx-auto">
-              <select
-                className="bg-[#121622] text-[#D8D9DB] p-[1rem] appearance-none   border-none w-full focus:outline-none "
-                value={roomType}
-                onChange={handleRoomTypeChange}
-              >
-                <option
-                  value="Cuarto de máquinas"
-                  className="bg-white text-gray-900"
+              <div className="relative w-[90%] mx-auto">
+                <select
+                  className="bg-[#121622] text-[#D8D9DB] p-[1rem] appearance-none   border-none w-full focus:outline-none "
+                  value={category}
+                  onChange={handleCategoryChange}
                 >
-                  Cuarto de máquinas
-                </option>
-                <option
-                  value="CON cuarto de máquinas"
-                  className="bg-white text-gray-900"
+                  <option value="Categoría" className="bg-white text-gray-900">
+                    Categoría
+                  </option>
+                  <option value="Pasajeros" className="bg-white text-gray-900">
+                    Pasajeros
+                  </option>
+                  <option
+                    value="Panorámicos"
+                    className="bg-white text-gray-900"
+                  >
+                    Panorámicos
+                  </option>
+                  <option value="Hospitales" className="bg-white text-gray-900">
+                    Hospitales
+                  </option>
+                  <option value="Carga" className="bg-white text-gray-900">
+                    Carga
+                  </option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                  <BiChevronDown color="#D8D9DB" className="text-[2.5rem]" />
+                </div>
+              </div>
+              <div className="relative w-[90%] mx-auto">
+                <select
+                  className="bg-[#121622] text-[#D8D9DB] p-[1rem] appearance-none   border-none w-full focus:outline-none "
+                  value={roomType}
+                  onChange={handleRoomTypeChange}
                 >
-                  CON cuarto de máquinas
-                </option>
-                <option
-                  value="SIN cuarto de máquinas"
-                  className="bg-white text-gray-900"
-                >
-                  SIN cuarto de máquinas
-                </option>
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                <BiChevronDown color="#D8D9DB" className="text-[2.5rem]" />
+                  <option
+                    value="Cuarto de máquinas"
+                    className="bg-white text-gray-900"
+                  >
+                    Cuarto de máquinas
+                  </option>
+                  <option
+                    value="CON cuarto de máquinas"
+                    className="bg-white text-gray-900"
+                  >
+                    CON cuarto de máquinas
+                  </option>
+                  <option
+                    value="SIN cuarto de máquinas"
+                    className="bg-white text-gray-900"
+                  >
+                    SIN cuarto de máquinas
+                  </option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                  <BiChevronDown color="#D8D9DB" className="text-[2.5rem]" />
+                </div>
               </div>
-            </div>
-            {/*  Slider */}
-            <div className="flex flex-col gap-[.5rem]">
-              <div className="flex justify-between">
-                <p className="text-[#5F78A0]">Pasajeros</p>
-                <a className="text-[#5F78A0] text-[1.4rem] underline">
-                  Limpiar
-                </a>
+              {/*  Slider */}
+              <div className="flex flex-col gap-[.5rem]">
+                <div className="flex justify-between">
+                  <p className="text-[#5F78A0]">Pasajeros</p>
+                  <a className="text-[#5F78A0] text-[1.4rem] underline">
+                    Limpiar
+                  </a>
+                </div>
+                <Slider
+                  getAriaLabel={() => "Pasajareous"}
+                  value={passengerValue}
+                  onChange={handlePassengerChange}
+                  getAriaValueText={valuePassengertext}
+                  min={1}
+                  max={160}
+                  sx={{
+                    color: "#5F78A0",
+                  }}
+                />
+                <div className="flex justify-between">
+                  <p className="text-[#DADADA] text-bold">
+                    {passengerValue[0]}
+                  </p>
+                  <a className="text-[#DADADA] text-bold">
+                    {passengerValue[1]}
+                  </a>
+                </div>
               </div>
-              <Slider
-                getAriaLabel={() => "Pasajareous"}
-                value={passengerValue}
-                onChange={handlePassengerChange}
-                getAriaValueText={valuePassengertext}
-                min={1}
-                max={160}
-                sx={{
-                  color: "#5F78A0",
-                }}
-              />
-              <div className="flex justify-between">
-                <p className="text-[#DADADA] text-bold">{passengerValue[0]}</p>
-                <a className="text-[#DADADA] text-bold">{passengerValue[1]}</a>
+              {/*  2nd */}
+              <div className="flex flex-col gap-[.5rem]">
+                <div className="flex justify-between">
+                  <p className="text-[#5F78A0]">Carga [kg]</p>
+                  <a className="text-[#5F78A0] text-[1.4rem] underline">
+                    Limpiar
+                  </a>
+                </div>
+                <Slider
+                  getAriaLabel={() => "Carga [kg]"}
+                  value={loadValue}
+                  onChange={handleLoadChange}
+                  getAriaValueText={valueLoadtext}
+                  min={100}
+                  max={12000}
+                  sx={{
+                    color: "#5F78A0",
+                  }}
+                />
+                <div className="flex justify-between">
+                  <p className="text-[#DADADA] text-bold">{loadValue[0]}</p>
+                  <a className="text-[#DADADA] text-bold">{loadValue[1]}</a>
+                </div>
               </div>
-            </div>
-            {/*  2nd */}
-            <div className="flex flex-col gap-[.5rem]">
-              <div className="flex justify-between">
-                <p className="text-[#5F78A0]">Carga [kg]</p>
-                <a className="text-[#5F78A0] text-[1.4rem] underline">
-                  Limpiar
-                </a>
-              </div>
-              <Slider
-                getAriaLabel={() => "Carga [kg]"}
-                value={loadValue}
-                onChange={handleLoadChange}
-                getAriaValueText={valueLoadtext}
-                min={100}
-                max={12000}
-                sx={{
-                  color: "#5F78A0",
-                }}
-              />
-              <div className="flex justify-between">
-                <p className="text-[#DADADA] text-bold">{loadValue[0]}</p>
-                <a className="text-[#DADADA] text-bold">{loadValue[1]}</a>
-              </div>
-            </div>
-            <div className="flex flex-col gap-[.5rem]">
-              <div className="flex justify-between">
-                <p className="text-[#5F78A0]">Velocidad [m/s]</p>
-                <a className="text-[#5F78A0] text-[1.4rem] underline">
-                  Limpiar
-                </a>
-              </div>
-              <Slider
-                getAriaLabel={() => "Velocidad [m/s]"}
-                value={speedValue}
-                onChange={handleSpeedChange}
-                getAriaValueText={valueSpeedtext}
-                sx={{
-                  color: "#5F78A0",
-                }}
-                min={0.15}
-                max={3.5}
-              />
-              <div className="flex justify-between">
-                <p className="text-[#DADADA] text-bold">{speedValue[0]}</p>
-                <a className="text-[#DADADA] text-bold">{speedValue[1]}</a>
+              <div className="flex flex-col gap-[.5rem]">
+                <div className="flex justify-between">
+                  <p className="text-[#5F78A0]">Velocidad [m/s]</p>
+                  <a className="text-[#5F78A0] text-[1.4rem] underline">
+                    Limpiar
+                  </a>
+                </div>
+                <Slider
+                  getAriaLabel={() => "Velocidad [m/s]"}
+                  value={speedValue}
+                  onChange={handleSpeedChange}
+                  getAriaValueText={valueSpeedtext}
+                  sx={{
+                    color: "#5F78A0",
+                  }}
+                  min={0.15}
+                  max={3.5}
+                />
+                <div className="flex justify-between">
+                  <p className="text-[#DADADA] text-bold">{speedValue[0]}</p>
+                  <a className="text-[#DADADA] text-bold">{speedValue[1]}</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
         {/*  right side */}
         {/*  grow 2 */}
-        <div className="w-2/3   flex flex-col gap-[1rem] flex-grow mt-[2rem] translate-y-[6rem] ">
+        <div className="w-2/3   flex flex-col gap-[1rem] flex-grow mt-[2rem] translate-y-[6rem] md:translate-y-0 md:my-0  md:max-w-[2/3]">
           {filteredData.length >= 1 &&
             filteredData.map((item, id) => (
               <Card
